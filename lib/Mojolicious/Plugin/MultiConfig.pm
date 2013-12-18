@@ -14,11 +14,11 @@ Mojolicious::Plugin::MultiConfig - Load multiple configs and merge
 
 =head1 VERSION
 
-Version 0.1
+Version 0.2
 
 =cut
 
-our $VERSION = '0.1';
+our $VERSION = '0.2';
 
 =head1 SYNOPSIS
 
@@ -94,7 +94,7 @@ sub register
 {
 	my $self = shift;
 	my $app  = shift;
-	my $arg  = {@_};
+	my $arg  = shift;
 	my $config = {};
 	my $username = (getpwuid($<))[0]; # TODO: Not on Windows!
 	my @files;
