@@ -96,7 +96,8 @@ sub register
 	my $app  = shift;
 	my $arg  = shift;
 	my $config = {};
-	my $username = (getpwuid($<))[0]; # TODO: Not on Windows!
+	eval { $username = ( getpwuid ($<) )[0]; }; # Not on Windows!
+    $username ||= $ENV{USERNAME};
 	my @files;
 
 	# Default args if not set
